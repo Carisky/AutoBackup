@@ -26,7 +26,8 @@ namespace AutoBackup
 
         static void RunBackup()
         {
-            const string configPath = "config.xml";
+            var exeDir = AppDomain.CurrentDomain.BaseDirectory;
+            var configPath = Path.Combine(exeDir, "config.xml");
             if (!File.Exists(configPath))
             {
                 Console.WriteLine($"Config file not found: {configPath}");
